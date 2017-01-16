@@ -1,0 +1,12 @@
+div.modal.fade.in(ng-click="cancel()")
+    div.modal-dialog
+        div.modal-content(ng-click="$event.stopPropagation()")
+            div.modal-header
+                button.close(type="button")
+                    span &times;
+                h4.modal-title Подтверждение
+            div.modal-body
+                span(ng-bind="message")
+            div.modal-footer
+                button.btn.btn-primary(type="button", ng-click="accept()") Сохранить
+                button.btn.btn-default(type="button", ng-click="cancel()") Закрыть

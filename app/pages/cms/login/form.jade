@@ -1,0 +1,37 @@
+div.container(ng-controller="loginController as login", spinner="login.loading")
+    div.title
+        h1 Авторизация
+        p.lead Войдите в систему используя свой логин и пароль
+
+    div.row
+        div.col-xs-4.col-xs-offset-4
+            form.form-error-tooltips(
+                name="login_form",
+                ng-submit="login.submit(login_form)",
+                novalidate,
+                ng-class="{'form-invalid': login.showErrors}"
+            )
+                div.form-group
+                    label Логин
+                    input.form-control(
+                        name="login",
+                        type="text",
+                        ng-model="login.info.login",
+                        required,
+                        form-object-errors="login_form"
+                    )
+                div.form-group
+                    label Пароль
+                    input.form-control(
+                        name="password"
+                        type="password"
+                        ng-model="login.info.password",
+                        required,
+                        form-object-errors="login_form"
+                    )
+                p
+                    button.btn.btn-default(
+                        type="submit"
+                    ) Войти
+
+                p.text-danger(ng-bind="login.requestError")

@@ -1,0 +1,40 @@
+.obj-error {
+    display: none;
+}
+
+.form-invalid {
+    .obj-error-show {
+        display: block;
+    }
+
+    input, textarea, select {
+        &.ng-invalid, &[type="radio"].ng-invalid + label, &.ng-invalid + .selectize-control .selectize-input {
+            transition: border-color .5s;
+            border-color: $border-color-error;
+        }
+    }
+
+    button[type="submit"] {
+        transition: border-color .5s;
+        border-color: $border-color-error;
+    }
+}
+
+.form-error-tooltips {
+    .error-element {
+        position: relative;
+
+        span {
+            position: absolute;
+            top: 0;
+            right: 0;
+            min-width: 50%;
+            background-color: $border-color-error;
+            margin: 3px;
+            padding: 4px;
+            color: #fff;
+            border: 1px solid $border-color-error;
+            z-index: 2;
+        }
+    }
+}

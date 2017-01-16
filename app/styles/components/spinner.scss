@@ -1,0 +1,16 @@
+.spinner-cont {
+    position: relative;
+
+    .spinner-load {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("/assets/images/loader.gif") no-repeat;
+        background-position: center center;
+        background-color: #fff;
+        opacity: .3;
+        z-index: 999;
+    }
+}

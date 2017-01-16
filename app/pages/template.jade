@@ -1,0 +1,33 @@
+div(ng-controller="authController as auth")
+    nav.navbar.navbar-inverse.navbar-fixed-top
+        div.container
+            div.navbar-header
+                button.navbar-toggle.collapsed(
+                    type="button",
+                    data-toggle="collapse",
+                    data-target="#navbar",
+                    aria-expanded="false",
+                    aria-controls="navbar"
+                )
+                    span.sr-only Меню
+                    span.icon-bar
+                    span.icon-bar
+                    span.icon-bar
+                a.navbar-brand(ui-sref="pages.guest") CMS
+
+            div#navbar.collapse.navbar-collapse
+                ul.nav.navbar-nav
+                    li(ui-sref-active="active")
+                        a(ui-sref="pages.public") Главная
+
+                ul.nav.navbar-nav.navbar-right(ng-if="!auth.user")
+                    li
+                        a(ui-sref="pages.cms") Войти
+
+                ul.nav.navbar-nav.navbar-right(ng-if="auth.user")
+                    li
+                        a(ng-click="auth.logout()") Выйти
+
+                p.navbar-text.navbar-right(ng-if="auth.user", ng-bind="auth.user")
+
+    div(ui-view="")

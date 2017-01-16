@@ -1,0 +1,13 @@
+{
+  "name": "Test-text-colored",
+  "version": "0.0.0",
+  "devDependencies": {
+      "gulp": "*",
+      "gulp-webserver": "*",
+      "rimraf": "*",
+
+      "gulp-jade": "^1.1.0",
+      "gulp-sass": "^2.3.2",
+      "gulp-concat": "^2.6.1"
+  }
+}

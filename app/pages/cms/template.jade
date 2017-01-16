@@ -1,0 +1,7 @@
+div.container
+    div.wrapper
+        div
+            div(ng-if="!auth.user")
+                div(ng-include="'/pages/cms/login/form.html'")
+            div(ng-if="auth.user")
+                div(ui-view="")

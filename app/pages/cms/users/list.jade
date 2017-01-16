@@ -1,0 +1,34 @@
+div.container(spinner="users.loading")
+    div.title
+        h1 Таблица пользователей
+        p.lead Управление ролями и жизнями пользователей
+
+    div.row
+        div.col-xs-12
+            table.table.table-bordered
+                thead
+                    tr.text-center
+                        th Пользователь
+                        th Пароль
+                        th Роли
+                        th(width=100) Действия
+                tbody
+                    tr(ng-if="users.list && !users.list.length")
+                        td(colspan="4")
+                    tr(ng-repeat="user in users.list")
+                        td(ng-bind="user.login")
+                        td(ng-bind="user.password")
+                        td
+                            div.form-inline(ng-repeat="role in users.roles")
+                                div.checkbox
+                                    label
+                                        input(
+                                            type="checkbox",
+                                            ng-model="user.rights[role.name]",
+                                            ng-change="users.save(user)"
+                                        )
+                                        | {{role.text}}
+                                br
+
+                        td
+                            button.btn.btn-default(ng-click="users.delete(user)") Удалить
