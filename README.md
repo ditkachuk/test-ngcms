@@ -10,5 +10,5 @@ Front page for CMS Test.
 * http://localhost:9003/
 
 ### Build
-* gulp build - create new realise in build directory
+* gulp build - create new release in build directory
 * gulp test - create server with build directory

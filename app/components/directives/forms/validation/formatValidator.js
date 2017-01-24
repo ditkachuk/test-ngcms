@@ -5,11 +5,6 @@
     };
 
     var isValidType = {
-        login: function(value) {
-            var words = /^\w+$/;
-            var email = isValidType.email;
-            return validate(value, value && (value.match(words) || email(value)));
-        },
         name: function(value) {
             return validate(value, value && value.match("^[а-яА-ЯёЁa-zA-Z\-]+$"));
         },
@@ -28,15 +23,6 @@
         },
         date: function(value) {
             return validate(value, value && Date.parse(value));
-        },
-        future: function(value, attrs) {
-            var isFutureDate;
-            if (attrs.futureNow) 
-                isFutureDate = Date.parse(value) ? moment(Date.parse(value)).isSameOrAfter(new Date(), 'day') : true;
-            else
-                isFutureDate = Date.parse(value) ? moment(Date.parse(value)).isAfter(new Date(), 'day') : true;
-
-            return validate(value, value && isFutureDate);
         },
         date_interval: function(value, attrs, scope) {
             var date = moment(Date.parse(value));
@@ -78,13 +64,21 @@
                     };
                 });
 
+                
                 scope.$watch('linked', function() {
                     $timeout(function() {
+                        var valid = true;
                         $.each(ngModelCtrl.$validators, function(name, validator) {
                             if (isValidType[name]) {
-                                validator(ngModelCtrl.$viewValue, attrs, scope);
+                                var isValid = validator(ngModelCtrl.$viewValue, attrs, scope);
+                                ngModelCtrl.$setValidity(name, isValid);
+                                if (!isValid) valid = false;
                             }
                         });
+                        if (valid) {
+                            ngModelCtrl.$$invalidModelValue = undefined;
+                            ngModelCtrl.$modelValue = ngModelCtrl.$viewValue;
+                        }
                     });
                 });
             }

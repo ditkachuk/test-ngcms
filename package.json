@@ -1,6 +1,6 @@
 {
-  "name": "Test-text-colored",
-  "version": "0.0.0",
+  "name": "Angular-cms-test",
+  "version": "0.0.1",
   "devDependencies": {
       "gulp": "*",
       "gulp-webserver": "*",
