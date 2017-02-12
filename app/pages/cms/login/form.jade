@@ -1,7 +1,10 @@
 div.container(ng-controller="loginController as login", spinner="login.loading")
     div.title
         h1 Авторизация
-        p.lead Войдите в систему используя свой логин и пароль
+        p.lead
+            span.glyphicon.glyphicon-user
+            | 
+            span Войдите в систему используя свой логин и пароль
 
     div.row
         div.col-xs-4.col-xs-offset-4

@@ -1,11 +1,4 @@
-var gulp = require('gulp');
-var fs = require('fs');
+var requireDir = require('require-dir');
 
-// gulp dir js files
-fs.readdirSync('./gulp').filter(function(file) {
-    return (/\.(js)$/i).test(file);
-}).map(function(file) {
-    require('./gulp/' + file);
-});
+requireDir('./gulp/', { recurse: true });
 
-gulp.task('default', ['dev']);

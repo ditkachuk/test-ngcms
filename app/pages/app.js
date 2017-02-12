@@ -1,7 +1,6 @@
 (function() {
     angular.module('app', [
     //libs
-        'ngSanitize',
         'ui.router',
     //components
         'directives',

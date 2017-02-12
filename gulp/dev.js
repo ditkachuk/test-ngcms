@@ -5,7 +5,9 @@ var webserver = require('gulp-webserver');
 var rimraf = require('rimraf');
 var config = require('./config');
 
-gulp.task('dev', ['clear'], function() {
+var lesshint = require('gulp-lesshint');
+
+gulp.task('dev', ['clear', 'lint'], function() {
     gulp.start('dev:watch');
 });
 
@@ -21,3 +23,12 @@ gulp.task('dev', ['clear'], function() {
     gulp.task('clear', function() {
         return rimraf.sync('dist');
     });
+
+gulp.task('lint', () => {
+    return gulp.src(config.paths.less)
+        .pipe(lesshint({}))
+        .pipe(lesshint.reporter())
+        .pipe(lesshint.failOnError());
+});
+
+gulp.task('default', ['dev']);

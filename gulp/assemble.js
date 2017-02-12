@@ -1,18 +1,22 @@
 'use strict';
 
 var gulp = require('gulp');
+var filter = require('gulp-filter');
+var replace = require('gulp-replace');
 var jade = require('gulp-jade');
 var concat = require('gulp-concat');
-var sass = require('gulp-sass');
+var less = require('gulp-less');
+var LessAutoprefix = require('less-plugin-autoprefix');
+var autoprefix = new LessAutoprefix({ browsers: ['last 2 versions'] });
+var bower = require('main-bower-files');
 var config = require('./config');
 
-gulp.task('assemble', ['assets', 'scss', 'js', 'jade', 'angular-templates'], function() {});
+gulp.task('assemble', ['assets', 'less', 'js', 'jade', 'angular-templates'], function() {});
 
-    gulp.task('scss', function() {
-        return gulp.src(config.paths.scss)
-            .pipe(concat('styles.scss'))
-            .pipe(sass({ outputStyle:    'compressed'})
-            .on('error', sass.logError))
+    gulp.task('less', function() {
+        return gulp.src(config.paths.less)
+            .pipe(concat('styles.less'))
+            .pipe(less({plugins: [autoprefix]}))
                 .pipe(gulp.dest('dist/styles'));
     });
 
@@ -23,20 +27,27 @@ gulp.task('assemble', ['assets', 'scss', 'js', 'jade', 'angular-templates'], fun
     });
 
         gulp.task('js::libs', function() {
-            return gulp.src(config.paths.libs)
+            return gulp.src(bower())
+                .pipe(filter(config.filters.js))
                 .pipe(concat('libs.js'))
                     .pipe(gulp.dest('dist/js'));
         });
 
         gulp.task('js::libs_styles', function() {
-            return gulp.src(config.paths.libs_styles)
+            return gulp.src(bower())
+                .pipe(filter(config.filters.css))
                 .pipe(concat('libs.css'))
                     .pipe(gulp.dest('dist/styles'));
         });
 
         gulp.task('js::libs_assets', function() {
-            return gulp.src(config.paths.libs_assets)
+            gulp.src(bower())
+                .pipe(filter(config.filters.assets))
                 .pipe(gulp.dest('dist/styles'));
+
+            return gulp.src(bower())
+                .pipe(filter(config.filters.fonts))
+                .pipe(gulp.dest('dist/fonts'));
         });
 
     gulp.task('jade', function() {

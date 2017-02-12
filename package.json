@@ -1,13 +1,28 @@
 {
-  "name": "Angular-cms-test",
-  "version": "0.0.1",
-  "devDependencies": {
-      "gulp": "*",
-      "gulp-webserver": "*",
-      "rimraf": "*",
+    "name": "ng-cms-test",
+    "repository": "https://github.com/ditkachuk/test-ngcms",
+    "version": "0.0.1",
+    "license": "MIT",
 
-      "gulp-jade": "^1.1.0",
-      "gulp-sass": "^2.3.2",
-      "gulp-concat": "^2.6.1"
-  }
+    "scripts": {
+        "postinstall": "bower install"
+    },
+
+    "devDependencies": {
+        "gulp": "=3.9.1",
+        "gulp-filter": "=5.0.0",
+        "gulp-replace": "=0.5.4",
+        "gulp-webserver": "=0.9.1",
+        "require-dir": "^0.1.0",
+        "rimraf": "=2.5.4",
+        "main-bower-files": "=2.13.1",
+
+        "gulp-jade": "=1.1.0",
+        "gulp-less": "=3.3.0",
+        "less-plugin-autoprefix": "*",
+        "gulp-lesshint": "3.0.0",
+        "gulp-concat": "=2.6.1",
+
+        "bower": "=1.8.0"
+    }
 }

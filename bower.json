@@ -1,0 +1,24 @@
+{
+    "name": "ng-cms-test",
+    "version": "0.0.1",
+
+    "dependencies": {
+        "angular": "=1.5.8",
+        "angular-ui-router": "=0.2.15",
+        "angular-local-storage": "=0.5.2",
+        "angular-modal-service": "=0.10.1",
+        "bootstrap": "=3.3.7 ",
+        "jquery": "=2.2.4",
+        "noty": "=2.3.10"
+    },
+
+    "overrides": {
+        "bootstrap": {
+            "main": [
+                "dist/fonts/*",
+                "dist/css/bootstrap.css",
+                "dist/js/bootstrap.js"
+            ]
+        }
+    }
+}

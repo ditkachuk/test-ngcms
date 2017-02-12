@@ -3,26 +3,34 @@
 (function() {
     var pathsCfg = {
         jade: 'app/**/*.jade',
-        scss: [
-            'app/styles/style.scss',
-            'app/styles/**/*.scss',
+        less: [
+            'app/styles/bootstrap.less',
+            'app/styles/style.less',
+            'app/styles/**/*.less',
         ],
         js: [
             'app/pages/*.js',
             'app/pages/**/*.js',
             'app/components/*.js',
             'app/components/**/*.js'
+        ]
+    };
+
+    var filters = {
+        js: '**/*.js',
+        css: '**/*.css',
+        fonts: [
+            '**/*.{eot,otf,svg,ttf,woff,woff2}',
+            '!**/*.js',
+            '!**/*.css',
+            '!**/*.less'
         ],
-        libs: [
-            'app/libs/jquery/*.js', // for file order
-            'app/libs/bootstrap/*.js',
-            'app/libs/**/*.js',
-        ],
-        libs_styles: 'app/libs/**/*.css',
-        libs_assets: [
-            'app/libs/bootstrap/**/*',
-            '!app/libs/**/*.js',
-            '!app/libs/**/*.css',
+        assets: [
+            '**/*',
+            '!**/*.{eot,otf,svg,ttf,woff,woff2}',
+            '!**/*.js',
+            '!**/*.css',
+            '!**/*.less'
         ]
     };
 
@@ -36,5 +44,6 @@
     };
 
     module.exports.webserver = webserverConfig;
+    module.exports.filters = filters;
     module.exports.paths = pathsCfg;
 })();
