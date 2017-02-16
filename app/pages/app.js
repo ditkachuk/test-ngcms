@@ -5,7 +5,8 @@
     //components
         'directives',
         'modules',
-        'services'
+        'services',
+        'templates'
     ]);
 
     angular.module('app').run(['$http', function ($http) {

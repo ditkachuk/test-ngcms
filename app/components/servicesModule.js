@@ -5,7 +5,12 @@
         'LocalStorageModule'
     ]);
 
-    angular.module('services').config(function (localStorageServiceProvider) {
-        localStorageServiceProvider.setPrefix('CMS');
-    });
+    angular.module('services').config([
+        'localStorageServiceProvider',
+        function(
+            localStorageServiceProvider
+        ) {
+            localStorageServiceProvider.setPrefix('CMS');
+        }
+    ]);
 })();

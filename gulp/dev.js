@@ -8,12 +8,13 @@ var config = require('./config');
 var lesshint = require('gulp-lesshint');
 
 gulp.task('dev', ['clear', 'lint'], function() {
+    config.production = false;
     gulp.start('dev:watch');
 });
 
     gulp.task('dev:watch', ['clear', 'assemble'], function() {
         gulp.watch(config.paths.js, ['js']);
-        gulp.watch(config.paths.scss, ['scss']);
+        gulp.watch(config.paths.less, ['less']);
         gulp.watch(config.paths.jade, ['jade']);
 
         return gulp.src('dist')
