@@ -14,11 +14,14 @@
 
     angular.module('directives').directive('formObjectErrors', ['$compile', function($compile) {
         return {
-            require:'ngModel',
-            link: function (scope, elm, attrs, ngModelCtrl) {
+            require: ['^form', 'ngModel'],
+            link: function (scope, elm, attrs, ctrls) {
+                var form = ctrls[0];
+                var ngModelCtrl = ctrls[1];
+
                 var errorMessages = angular.extend({}, errors, scope.$eval(attrs.errorMessages) || {});
 
-                var formName = attrs.formObjectErrors,
+                var formName = form.$name,
                     fieldName = ngModelCtrl.$name,
                     validators = ngModelCtrl.$validators,
                     errorElement = angular.element('<div class="error-element"></div>');

@@ -21,7 +21,7 @@ div.container(ng-controller="loginController as login", spinner="login.loading")
                         type="text",
                         ng-model="login.info.login",
                         required,
-                        form-object-errors="login_form"
+                        form-object-errors
                     )
                 div.form-group
                     label Пароль
@@ -30,7 +30,7 @@ div.container(ng-controller="loginController as login", spinner="login.loading")
                         type="password"
                         ng-model="login.info.password",
                         required,
-                        form-object-errors="login_form"
+                        form-object-errors
                     )
                 p
                     button.btn.btn-default(

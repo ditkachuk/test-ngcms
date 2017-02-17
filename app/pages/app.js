@@ -17,6 +17,7 @@
         $httpProvider
     ) {
         $compileProvider.debugInfoEnabled(appConfig.debugInfoEnabled);
+        $httpProvider.useApplyAsync(true);
     }]);
 
     angular.module('app').run(['$http', function ($http) {
