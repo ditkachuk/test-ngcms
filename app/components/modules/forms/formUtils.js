@@ -7,11 +7,11 @@
             scope.showErrors = false;
             var invalid = false;
 
-            if (!$.isArray(forms)) {
+            if (!angular.isArray(forms)) {
                 forms = [forms];
             }
 
-            $.each(forms, function(i, form) {
+            angular.forEach(forms, function(form, i) {
                 if (form && form.$invalid) invalid = true;
             });
 

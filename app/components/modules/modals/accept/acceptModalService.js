@@ -8,7 +8,7 @@
                 templateUrl: '/components/modules/modals/accept/accept_modal.html',
                 controller: 'acceptModalController',
                 inputs: {
-                    message: message
+                    message: message || 'Вы уверены?'
                 }
             });
         };

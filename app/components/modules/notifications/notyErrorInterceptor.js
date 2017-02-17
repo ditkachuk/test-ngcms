@@ -13,9 +13,7 @@
                     if (!response.status) errorText = 'Нет ответа от сервера';
 
                     // Отправка сообщения в сервис noty
-                    $rootScope.$emit('noty', {
-                        text: errorText
-                    });
+                    $rootScope.$emit('noty', errorText);
                 }
 
                 return $q.reject(response);

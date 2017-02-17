@@ -4,9 +4,9 @@
         return {
             restrict: 'A',
             link: function ($scope, elm, attrs) {
-                var $elm = $(elm).addClass('spinner-cont');
+                var $elm = angular.element(elm).addClass('spinner-cont');
                 var watcher = $scope.$watchCollection(attrs.spinner, function(promises) {
-                    if (!promises || !$.isArray(promises) || promises.length == 0) return;
+                    if (!promises || !angular.isArray(promises) || promises.length == 0) return;
                     $elm.append($('<div class="spinner-load"></div>'));
                     var spinner = $elm.find('.spinner-load');
 

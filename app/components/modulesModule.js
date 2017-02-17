@@ -2,6 +2,7 @@
 (function() {
     angular.module('modules', [
         //libs
-        'angularModalService'
+        'angularModalService',
+        'cgNotify'
     ]);
 })();

@@ -16,18 +16,18 @@
         return {
             require:'ngModel',
             link: function (scope, elm, attrs, ngModelCtrl) {
-                var errorMessages = $.extend({}, errors, scope.$eval(attrs.errorMessages) || {});
+                var errorMessages = angular.extend({}, errors, scope.$eval(attrs.errorMessages) || {});
 
                 var formName = attrs.formObjectErrors,
                     fieldName = ngModelCtrl.$name,
                     validators = ngModelCtrl.$validators,
-                    errorElement = $('<div class="error-element"></div>');
+                    errorElement = angular.element('<div class="error-element"></div>');
 
                 if (!formName || !fieldName) return;
 
-                $(elm).closest('.form-group').append(errorElement);
+                angular.element(elm).parent().append(errorElement);
 
-                $.each(validators, function(error) {
+                angular.forEach(validators, function(validator, error) {
                     var fields = formName + '.'+ fieldName + '.$error.'+ error;
                     if (attrs.errorShared) fields += ' || ' + formName + '.'+ attrs.errorShared + '.$error.'+ error;
                     var message = errorMessages[error] || errors.formatValidator;

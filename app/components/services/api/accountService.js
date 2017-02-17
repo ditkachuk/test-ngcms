@@ -1,5 +1,5 @@
 (function() {
-    // сервис для работы с апи авторизации kg_api.account
+    // сервис для работы с апи авторизации
     angular.module('services').service('accountService', [
         '$http', '$q', 'apiService', 'localStorageService', '$rootScope',
     function(

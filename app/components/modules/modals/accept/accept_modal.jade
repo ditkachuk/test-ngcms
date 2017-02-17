@@ -2,7 +2,7 @@ div.modal.fade.in(ng-click="cancel()")
     div.modal-dialog
         div.modal-content(ng-click="$event.stopPropagation()")
             div.modal-header
-                button.close(type="button")
+                button.close(type="button", ng-click="cancel()")
                     span &times;
                 h4.modal-title Подтверждение
             div.modal-body
