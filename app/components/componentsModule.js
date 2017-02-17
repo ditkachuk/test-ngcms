@@ -1,11 +1,13 @@
-// Инициализация модуля для хранения сервисов работы с сервером
+// Инициализация модуля для хранения компонентов
 (function() {
-    angular.module('services', [
+    angular.module('components', [
         //libs
+        'angularModalService',
+        'cgNotify',
         'LocalStorageModule'
     ]);
 
-    angular.module('services').config([
+    angular.module('components').config([
         'localStorageServiceProvider',
         function(
             localStorageServiceProvider

@@ -1,6 +1,6 @@
 (function() {
     // сервис для работы с модалом подтверждения
-    angular.module('modules').service('acceptModalService', ['$q', 'baseModalService', function($q, baseModalService) {
+    angular.module('components').service('acceptModalService', ['$q', 'baseModalService', function($q, baseModalService) {
         var self = this;
 
         self.accept = function(message) {
@@ -14,7 +14,7 @@
         };
     }]);
 
-    angular.module('modules').controller('acceptModalController', [
+    angular.module('components').controller('acceptModalController', [
         '$scope', 'close', 'message',
     function(
         $scope, close, message

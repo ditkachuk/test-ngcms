@@ -1,6 +1,6 @@
 (function() {
     // сервис для работы с модалом подтверждения
-    angular.module('modules').service('baseModalService', [
+    angular.module('components').service('baseModalService', [
         '$q', 'ModalService', '$document',
     function(
         $q, ModalService, $document

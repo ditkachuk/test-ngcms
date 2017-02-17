@@ -1,6 +1,6 @@
 (function() {
     // сервис для работы с api
-    angular.module('services').service('apiService', [
+    angular.module('components').service('apiService', [
         '$http', '$q',
     function(
         $http, $q

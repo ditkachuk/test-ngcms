@@ -15,9 +15,9 @@ div.container(spinner="users.loading")
                 tbody
                     tr(ng-if="users.list && !users.list.length")
                         td(colspan="4")
-                    tr(ng-repeat="user in users.list")
-                        td(ng-bind="user.login")
-                        td(ng-bind="user.password")
+                    tr(ng-repeat="user in users.list track by $index")
+                        td(ng-bind="::user.login")
+                        td(ng-bind="::user.password")
                         td
                             div.form-inline(ng-repeat="role in users.roles")
                                 div.checkbox

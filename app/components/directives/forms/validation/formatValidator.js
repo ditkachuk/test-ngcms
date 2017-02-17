@@ -44,7 +44,7 @@
         exist: function() { return true; }
     };
 
-    angular.module('directives').directive('formatValidator', ['$timeout', function ($timeout) {
+    angular.module('components').directive('formatValidator', ['$timeout', function ($timeout) {
         return {
             require:'ngModel',
             scope: {

@@ -1,5 +1,5 @@
 (function() {
-    angular.module('modules').service('notyService', [
+    angular.module('components').service('notyService', [
         '$rootScope', 'notify',
     function(
         $rootScope, notify
@@ -22,5 +22,5 @@
         });
     }]);
 
-    angular.module('modules').run(['notyService', function() {}]);
+    angular.module('components').run(['notyService', function() {}]);
 })();

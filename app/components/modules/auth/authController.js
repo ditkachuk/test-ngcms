@@ -1,6 +1,6 @@
 (function() {
     // контроллер авторизации приложения
-    angular.module('modules').controller('authController', [
+    angular.module('components').controller('authController', [
         '$rootScope', 'accountService', '$state',
     function(
         $rootScope, accountService, $state

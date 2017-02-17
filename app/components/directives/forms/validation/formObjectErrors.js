@@ -12,7 +12,7 @@
         exist: 'Логин занят другим пользователем'
     };
 
-    angular.module('directives').directive('formObjectErrors', ['$compile', function($compile) {
+    angular.module('components').directive('formObjectErrors', ['$compile', function($compile) {
         return {
             require: ['^form', 'ngModel'],
             link: function (scope, elm, attrs, ctrls) {

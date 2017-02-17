@@ -1,6 +1,6 @@
 (function() {
     // сервис для функций работы с формами
-    angular.module('modules').service('formUtils', [function() {
+    angular.module('components').service('formUtils', [function() {
         var self = this;
 
         self.check_forms_valid = function(scope, forms) {

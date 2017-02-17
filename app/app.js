@@ -3,9 +3,7 @@
     //libs
         'ui.router',
     //components
-        'directives',
-        'modules',
-        'services',
+        'components',
         'templates'
     ]);
 

@@ -1,6 +1,6 @@
 (function() {
     // сервис для работы с апи авторизации
-    angular.module('services').service('accountService', [
+    angular.module('components').service('accountService', [
         '$http', '$q', 'apiService', 'localStorageService', '$rootScope',
     function(
         $http, $q, apiService, localStorageService, $rootScope

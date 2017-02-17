@@ -1,6 +1,6 @@
 (function() {
     // Добавление обработки ошибок в запросы
-    angular.module('modules').config([
+    angular.module('components').config([
         '$httpProvider',
     function (
         $httpProvider

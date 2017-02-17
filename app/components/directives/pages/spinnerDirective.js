@@ -1,6 +1,6 @@
 // Директива для добавления индикатора загрузки на рядом с элементом на основе переданного массива промисов
 (function() {
-    angular.module('directives').directive('spinner', ['$q', function($q) {
+    angular.module('components').directive('spinner', ['$q', function($q) {
         return {
             restrict: 'A',
             link: function ($scope, elm, attrs) {

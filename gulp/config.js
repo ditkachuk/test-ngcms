@@ -7,6 +7,7 @@ var pathsCfg = {
         'app/styles/**/*.less',
     ],
     js: [
+        'app/app.js',
         'app/pages/*.js',
         'app/pages/**/*.js',
         'app/components/*.js',
