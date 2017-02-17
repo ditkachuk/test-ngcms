@@ -31,7 +31,11 @@ gulp.task('assemble', ['assets', 'less', 'js', 'jade'], function() {
     });
 
     gulp.task('js', ['js::libs', 'js::libs_styles', 'js::libs_assets'], function() {
-        return gulp.src(config.paths.js)
+        return gulp.src(
+                config.paths.js.concat(
+                    [ './app/config.' + (config.production ? 'prod' : 'dev') + '.js']
+                )
+            )
             .pipe(_if(!config.production, plumber()))
                 .pipe(concat('scripts.js'))
                 .pipe(_if(config.production, uglify()))

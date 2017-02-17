@@ -13,7 +13,7 @@ gulp.task('dev', ['clear', 'lint'], function() {
 });
 
     gulp.task('dev:watch', ['clear', 'assemble'], function() {
-        gulp.watch(config.paths.js, ['js']);
+        gulp.watch(config.paths.js.concat(['config.dev.js']), ['js']);
         gulp.watch(config.paths.less, ['less']);
         gulp.watch(config.paths.jade, ['jade']);
 

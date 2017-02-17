@@ -3,7 +3,6 @@
 var pathsCfg = {
     jade: 'app/**/*.jade',
     less: [
-        'app/styles/bootstrap.less',
         'app/styles/style.less',
         'app/styles/**/*.less',
     ],
